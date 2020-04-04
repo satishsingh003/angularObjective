@@ -108,8 +108,8 @@ Angular is a **TypeScript-based open-source** front-end platform that makes it e
     ngOnDestroy()	
       Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
       Called just before Angular destroys the directive/component.
-  7. ### What is a data binding?
-   Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications without worrying about pushing and pulling data. There are four forms of data binding(divided as 3 categories) which differ in the way the data is flowing.
+  12. ### What is a data binding?
+    Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications without worrying about pushing and pulling data. There are four forms of data binding(divided as 3 categories) which differ in the way the data is flowing.
     1. **From the Component to the DOM:**
     **Interpolation:** {{ value }}: Adds the value of a property from the component
     ```html
@@ -130,5 +130,6 @@ Angular is a **TypeScript-based open-source** front-end platform that makes it e
     ```html
     <input type="email" [(ngModel)]="user.email">
     ```
+
   **[⬆ Back to Top](#table-of-contents)**
 
