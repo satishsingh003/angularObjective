@@ -12,6 +12,8 @@
 |3 | [What are the key components of Angular?](#what-are-the-key-components-of-angular)|
 |4 | [What are directives ,different types of directives?](#what-are-directives)|
 |5 | [What is module?](#what-is-module?)|
+|6 | [What are life cycle methods in Angular?](#what-are-life-cycle-methods-in-Angular?)|
+|7 | [What is a data binding?](#What-is-a-data-binding?)|
 1. ### What is Angular Framework?
 Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build applications with in web/mobile/desktop. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
 
@@ -73,6 +75,60 @@ Angular is a **TypeScript-based open-source** front-end platform that makes it e
     1. The imports option is used to import other dependent modules. The BrowserModule is required by default for any web based angular application
     2. The declarations option is used to define components in the respective module
     3. The bootstrap option tells Angular which Component to bootstrap in the application
+6. ### What are life cycle methods in Angular?
+    Hook	Purpose and Timing
+    ngOnChanges()	
+      Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.
+      Called before ngOnInit() and whenever one or more data-bound input properties change.
 
+    ngOnInit()	
+      Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.
+      Called once, after the first ngOnChanges().
+
+    ngDoCheck()	
+      Detect and act upon changes that Angular can't or won't detect on its own.
+      Called during every change detection run, immediately after ngOnChanges() and ngOnInit().
+
+    ngAfterContentInit()	
+      Respond after Angular projects external content into the component's view / the view that a directive is in.
+      Called once after the first ngDoCheck().
+
+    ngAfterContentChecked()	
+      Respond after Angular checks the content projected into the directive/component.
+      Called after the ngAfterContentInit() and every subsequent ngDoCheck().
+
+    ngAfterViewInit()	
+      Respond after Angular initializes the component's views and child views / the view that a directive is in.
+     Called once after the first ngAfterContentChecked().
+
+    ngAfterViewChecked()	
+      Respond after Angular checks the component's views and child views / the view that a directive is in.
+      Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().
+
+    ngOnDestroy()	
+      Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
+      Called just before Angular destroys the directive/component.
+  7. ### What is a data binding?
+   Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications without worrying about pushing and pulling data. There are four forms of data binding(divided as 3 categories) which differ in the way the data is flowing.
+    1. **From the Component to the DOM:**
+    **Interpolation:** {{ value }}: Adds the value of a property from the component
+    ```html
+    <li>Name: {{ user.name }}</li>
+    <li>Address: {{ user.address }}</li>
+    ```
+    **Property binding:** [property]=”value”: The value is passed from the component to the specified property or simple HTML attribute
+    ```html
+    <input type="email" [value]="user.email">
+    ```
+    2. **From the DOM to the Component:**
+    **Event binding: (event)=”function”:** When a specific DOM event happens (eg.: click, change, keyup), call the specified method in the component
+    ```html
+    <button (click)="logout()"></button>
+    ```
+    3. **Two-way binding:**
+    **Two-way data binding:** [(ngModel)]=”value”: Two-way data binding allows to have the data flow both ways. For example, in the below code snippet, both the email DOM input and component email property are in sync
+    ```html
+    <input type="email" [(ngModel)]="user.email">
+    ```
   **[⬆ Back to Top](#table-of-contents)**
 
